@@ -8,11 +8,13 @@ var IndexRoute = ReactRouter.IndexRoute
 var browserHistory = ReactRouter.browserHistory 
 
 var Main = require('../containers/Main')
+var Home = require('../components/Home')
 
 var routes = (
 	<Router history={browserHistory}>
 		<Route path="/" component={Main}>
 			{/* Routes go here, inside Main*/}
+			<IndexRoute component={Home}></IndexRoute>
 		</Route>
 
 	</Router>
