@@ -7,14 +7,14 @@ var Link = ReactRouter.Link
 var IndexRoute = ReactRouter.IndexRoute 
 var browserHistory = ReactRouter.browserHistory 
 
-var Main = require('../containers/Main')
-var Home = require('../components/Home')
+var MainContainer = require('../containers/MainContainer')
+var HomeContainer = require('../containers/HomeContainer')
 
 var routes = (
 	<Router history={browserHistory}>
-		<Route path="/" component={Main}>
+		<Route path="/" component={MainContainer}>
 			{/* Routes go here, inside Main*/}
-			<IndexRoute component={Home}></IndexRoute>
+			<IndexRoute component={HomeContainer}></IndexRoute>
 		</Route>
 
 	</Router>
