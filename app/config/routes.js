@@ -11,7 +11,9 @@ var Main = require('../containers/Main')
 
 var routes = (
 	<Router history={browserHistory}>
-		<Route path="/" component={Main}></Route>
+		<Route path="/" component={Main}>
+			{/* Routes go here, inside Main*/}
+		</Route>
 
 	</Router>
 )
