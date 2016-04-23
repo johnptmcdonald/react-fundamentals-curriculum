@@ -9,12 +9,14 @@ var browserHistory = ReactRouter.browserHistory
 
 var MainContainer = require('../containers/MainContainer')
 var HomeContainer = require('../containers/HomeContainer')
+var ForecastContainer = require('../containers/ForecastContainer')
 
 var routes = (
 	<Router history={browserHistory}>
 		<Route path="/" component={MainContainer}>
 			{/* Routes go here, inside Main*/}
-			<IndexRoute component={HomeContainer}></IndexRoute>
+			<IndexRoute component={HomeContainer}/>
+			<Route path="/forecast/:city" component={ForecastContainer}/>
 		</Route>
 
 	</Router>

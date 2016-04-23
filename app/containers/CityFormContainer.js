@@ -1,7 +1,11 @@
 var React = require('react');
 var CityForm = require('../components/CityForm')
 
+
 var CityFormContainer = React.createClass({
+	contextTypes: {
+		router: React.PropTypes.object.isRequired
+	},
 
 	getInitialState: function(){
 		return {
@@ -10,7 +14,7 @@ var CityFormContainer = React.createClass({
 	},
 
 	handleChange: function(event){
- 		console.log("changing!")
+ 		console.log("changing! to ", event.target.value)
  		this.setState({
  			city: event.target.value
  		})
@@ -18,13 +22,18 @@ var CityFormContainer = React.createClass({
 
 	handleSubmit: function(event){
 		event.preventDefault()
-		console.log("submitting" + this.state.city)
+	
+		console.log("moving " + this.state.city + " to forecast page")
+		this.context.router.push({
+			pathname: '/forecast/' + this.state.city,
+		})
+
 	},
 
 
 	render: function() {
 		return (
-			<CityForm inline={this.props.inline} value={this.state.city} onChange={this.handleChange} onSubmit={this.handleSubmit}/>
+			<CityForm inline={this.props.inline} city={this.state.city} onChange={this.handleChange} onSubmit={this.handleSubmit}/>
 		);
 	}
 
